@@ -24,8 +24,4 @@ public class RelaseDate {
     @OneToOne
     private Performer performer;
 
-    public RelaseDate(Long id, Long year) {
-        this.id = id;
-        this.year = year;
-    }
 }

@@ -1,5 +1,6 @@
 package io.a10.musicapp.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,10 +20,13 @@ public class Edition {
     private Long id;
     private String name;
     @OneToOne
+    @JsonIgnore
     private RelaseDate relaseDate;
     @OneToOne
+    @JsonIgnore
     private Title title;
     @OneToOne
+    @JsonIgnore
     private Performer performer;
 
     public Edition(Long id, String name) {

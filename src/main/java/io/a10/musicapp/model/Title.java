@@ -27,4 +27,5 @@ public class Title {
         this.id = id;
         AlbumTitle = albumTitle;
     }
+
 }

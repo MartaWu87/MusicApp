@@ -21,5 +21,10 @@ public class Title {
     Long id;
     private String AlbumTitle;
     @OneToOne
-    private Tracks tracks;
+    private Performer performer;
+
+    public Title(Long id, String albumTitle) {
+        this.id = id;
+        AlbumTitle = albumTitle;
+    }
 }

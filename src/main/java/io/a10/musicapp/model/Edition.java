@@ -17,10 +17,16 @@ public class Edition {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne
-    private Tracks tracks;
+    private String name;
     @OneToOne
     private RelaseDate relaseDate;
     @OneToOne
     private Title title;
+    @OneToOne
+    private Performer performer;
+
+    public Edition(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }

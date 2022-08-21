@@ -20,4 +20,12 @@ public class Tracks {
     private long length;
 @OneToOne
     private Performer performer;
+    @OneToOne
+    private Edition edition;
+
+    public Tracks(Long id, String track, long length) {
+        this.id = id;
+        this.track = track;
+        this.length = length;
+    }
 }

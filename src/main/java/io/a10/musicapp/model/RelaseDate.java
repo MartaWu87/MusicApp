@@ -18,7 +18,14 @@ public class RelaseDate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    private Date year;
+    private Long year;
     @OneToOne
     private Edition edition;
+    @OneToOne
+    private Performer performer;
+
+    public RelaseDate(Long id, Long year) {
+        this.id = id;
+        this.year = year;
+    }
 }

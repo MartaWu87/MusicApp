@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import java.util.List;
@@ -18,12 +19,30 @@ public class Performer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @OneToOne
-    private Edition edition;
-    @OneToOne
-    private RelaseDate relaseDate;
-    @OneToOne
-    private Title title;
-    @OneToMany
+       @OneToMany
     private List<Tracks> tracks;
+
+    public Performer(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+//    @Override
+//    public String toString() {
+//        StringBuilder builder = new StringBuilder();
+//        builder.append("Performer [id=");
+//        builder.append(id);
+//        builder.append(", name=");
+//        builder.append(name);
+//        builder.append(", edition=");
+//        builder.append(edition);
+//        builder.append(", relaseDate=");
+//        builder.append(relaseDate);
+//        builder.append(", title=");
+//        builder.append(title);
+//        builder.append(", tracks=");
+//        builder.append(tracks);
+//        builder.append("]");
+//        return builder.toString();
+//    }
 }

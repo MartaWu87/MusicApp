@@ -23,6 +23,7 @@ public class Title {
     @OneToOne
     private Performer performer;
 
+
     public Title(Long id, String albumTitle) {
         this.id = id;
         AlbumTitle = albumTitle;

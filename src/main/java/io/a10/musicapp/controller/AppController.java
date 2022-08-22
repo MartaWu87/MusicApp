@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.persistence.Query;
+import javax.swing.plaf.IconUIResource;
 import java.util.List;
 
 @RestController
@@ -17,7 +19,7 @@ public class AppController {
     private final MusicAppService musicAppService;
 
     @GetMapping("/show/{id}")
-    public List<List<Tracks>> findByAlbum(@PathVariable Long id) {
+    public List<Tracks> findByAlbum(@PathVariable Long id) {
         return musicAppService.findAllByAlbum(id);
     }
 
@@ -25,4 +27,5 @@ public class AppController {
     public List<Edition> getEditionList() {
         return musicAppService.getEditionList();
     }
+
 }

@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,13 +25,14 @@ public class MusicAppService {
         return editionRepository.findAll();
     }
 
-    public List<List<Tracks>> findAllByAlbum(Long id) {
+    public List<Tracks> findAllByAlbum(Long id) {
         return editionRepository.findById(id)
                 .stream()
-                .map(track -> tracksRepository.findAll())
+                .map(edition -> tracksRepository.findByEdition(edition))
+                .flatMap(List::stream)
                 .collect(Collectors.toList());
 
+
     }
-//    @Query(value = "select sum(length) from tracks where edition_id=?", nativeQuery = true)
-//    Long countAlbumTime(Long id)
+
 }

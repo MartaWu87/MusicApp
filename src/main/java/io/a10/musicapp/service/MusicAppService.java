@@ -1,5 +1,6 @@
 package io.a10.musicapp.service;
 
+import io.a10.musicapp.controller.dto.EditionListDto;
 import io.a10.musicapp.model.Edition;
 import io.a10.musicapp.model.Tracks;
 import io.a10.musicapp.repository.*;
@@ -31,8 +32,12 @@ public class MusicAppService {
                 .map(edition -> tracksRepository.findByEdition(edition))
                 .flatMap(List::stream)
                 .collect(Collectors.toList());
-
-
     }
 
+    public List<EditionListDto> getEditionListDto() {
+        return getEditionList()
+                .stream()
+                .map(edition -> new EditionListDto(edition.getId(), edition.getName(), tracksRepository.countAlbumTime(edition.getId())))
+                .collect(Collectors.toList());
+    }
 }

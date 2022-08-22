@@ -16,4 +16,5 @@ public interface TracksRepository extends JpaRepository<Tracks, Long> {
 
     @Query(value = "select sum(length) from tracks where edition_id=?", nativeQuery = true)
     Long countAlbumTime(Long id);
+
 }
